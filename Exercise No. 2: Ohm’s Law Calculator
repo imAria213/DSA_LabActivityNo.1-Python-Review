@@ -1,0 +1,36 @@
+# Ask the user what they want to calculate: Voltage, Current, or Resistance.
+while True:
+    to_calculate = input("What would you like to calculate? \n Type 'V' for Voltage, 'C' for Current, 'R' for Resistance:").strip().upper() 
+
+ # Calculation depending to the user's choice
+    # Calculation for Voltage
+    if to_calculate == 'V':  
+        current = float(input("Enter the current (C) in amperes: "))
+        resistance = float(input("Enter the resistance (R) in ohms: "))
+        voltage = current * resistance
+        print(f"The voltage is {voltage:.2f} volts.")
+
+    # Calculation for Current
+    elif to_calculate == 'C': 
+        voltage = float(input("Enter the voltage (V) in volts: "))
+        resistance = float(input("Enter the resistance (R) in ohms: "))
+        if resistance != 0:
+            current = voltage / resistance
+            print(f"The current is {current:.2f} amperes.")
+        else:
+            print("Division by zero is not applicable.")
+
+    # Calculation for Resistance
+    elif to_calculate == 'R':  
+        voltage = float(input("Enter the voltage (V) in volts: "))
+        current = float(input("Enter the current (I) in amperes: "))
+        if current != 0:
+            resistance = voltage / current
+            print(f"The resistance is {resistance:.2f} ohms.")
+        else:
+            print("Division by zero is not applicable.")
+
+    else:
+        print("Choice Invalid! Please enter 'V', 'C', or 'R' only.")
+
+    break
