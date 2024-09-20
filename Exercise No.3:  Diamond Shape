@@ -1,0 +1,29 @@
+def print_diamond(n):
+    # Validate input to ensure it is an integer
+    if not isinstance(n, int):
+        print("Input must be an integer.")
+        return
+
+    # Check if the number is odd
+    if n % 2 == 0: 
+        print("Please provide only an odd integer.")
+        return
+
+    # First part of the diamond (upper part)
+    for i in range(n // 2 + 1):  # Loop from 0 to middle of the diamond
+        spaces = ' ' * (n // 2 - i)  # Print spaces to center the stars
+        stars = '*' * (2 * i + 1)  # Print increasing number of stars
+        print(spaces + stars)  # Combine spaces and stars, then print
+
+    # Second part of the diamond (lower part)
+    for i in range(n // 2 - 1, -1, -1):  # Loop from middle down to the last row
+        spaces = ' ' * (n // 2 - i)  # Print spaces to center the stars
+        stars = '*' * (2 * i + 1)  # Print decreasing number of stars
+        print(spaces + stars)  # Combine spaces and stars, then print
+
+# Request user input and validate it
+try:
+    n = int(input("Please enter an odd integer: "))
+    print_diamond(n)
+except ValueError:
+    print("Invalid input. Please enter an integer.")
